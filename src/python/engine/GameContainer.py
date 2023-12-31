@@ -1,14 +1,16 @@
-import AbstractGame
-import Window
-import Renderer
-import Input
-import Thread
+from engine.AbstractGame import AbstractGame
+from engine.Window import Window
+from engine.Renderer import Renderer
+from engine.Input import Input
+from threading import Thread
 import time
 
 class GameContainer(AbstractGame):
 
       FPS_PADRAO = 60.0
       UPDATE_CAP = 1.0/FPS_PADRAO
+      width = 540
+      height = 340
     
       def __init__(self, game):
             self.game = game
@@ -23,11 +25,10 @@ class GameContainer(AbstractGame):
       }"""
 
       def start(self):
-            self.window = Window(self)
-            self.renderer = Renderer(self)
-            self.input = Input(self)
-            self.thread = Thread(self)
-            self.thread.run() # executa o metodo run() dessa classe em uma thread
+            self.window = Window(self.width, self.height)
+            self.renderer = Renderer(self.window.screen)
+            self.input = Input()
+            self.thread = Thread(self.run())
 
       def run(self):
             self.running = True
@@ -58,8 +59,8 @@ class GameContainer(AbstractGame):
                         unprocessedTime -= self.UPDATE_CAP  # Tempo comido
                         render = True
 
-                        self.game.tick(self, self.UPDATE_CAP)
-                        self.input.tick()
+                        self.game.update(self, self.UPDATE_CAP)
+                        self.input.update()
 
                         if frameTime >= 1.0:
                               frameTime = 0

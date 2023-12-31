@@ -5,12 +5,14 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JApplet;
+
 import mc322.engine.LinearAlgebra;
 import mc322.engine.Pair;
 import mc322.engine.Renderer;
 import mc322.engine.gfx.ImageTile;
 
-public class GameRenderer {
+public class GameRenderer extends JApplet{
 
       public static void drawTile(int i,int j,double elevation, String name, Renderer r, int updateX, int updateY, String color){
             ImageTile image = GameMapTokens.getImageTile(name, color);

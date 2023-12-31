@@ -3,8 +3,13 @@ package mc322.engine;
 import java.awt.image.DataBufferInt;
 import java.lang.Math;
 import java.util.Random;
+
+import javax.swing.JApplet;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import java.applet.*;
 
 import mc322.engine.LinearAlgebra;
 import mc322.game.GameMapTokens;
@@ -12,7 +17,7 @@ import mc322.game.GameMapTokens;
 import mc322.engine.gfx.Image;
 import mc322.engine.gfx.ImageTile;
 
-public class Renderer{
+public class Renderer extends JApplet{
 
       private int pW, pH;
       private int[] p;

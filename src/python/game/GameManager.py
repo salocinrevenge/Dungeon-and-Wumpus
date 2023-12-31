@@ -6,6 +6,8 @@ class GameManager(AbstractGame):
         gc = GameContainer(self)
         gc.start()
 
+    def update(self, gc, dt):
+        pass
 
 if __name__ == "__main__":
     GameManager()
