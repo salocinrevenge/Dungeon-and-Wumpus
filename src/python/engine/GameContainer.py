@@ -11,6 +11,7 @@ class GameContainer(AbstractGame):
       UPDATE_CAP = 1.0/FPS_PADRAO
       width = 540
       height = 340
+      scale = 2.0
     
       def __init__(self, game):
             self.game = game
@@ -25,7 +26,7 @@ class GameContainer(AbstractGame):
       }"""
 
       def start(self):
-            self.window = Window(self.width, self.height)
+            self.window = Window(self.width*self.scale, self.height*self.scale)
             self.renderer = Renderer(self.window.screen)
             self.input = Input()
             self.thread = Thread(self.run())

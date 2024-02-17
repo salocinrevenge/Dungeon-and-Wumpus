@@ -1,9 +1,16 @@
 from engine.GameContainer import GameContainer
 from engine.AbstractGame import AbstractGame
+from game.Dungeon import Dungeon
 
 class GameManager(AbstractGame):
     def __init__(self):
-        pass
+        self.dungeon = Dungeon(self)
 
     def update(self, gc, dt):
-        pass
+        self.dungeon.update(gc, dt)
+
+    def reset(self):
+        self.dungeon = Dungeon(self)
+    
+    def render(self, gc, r):
+        self.dungeon.render(gc, r)
